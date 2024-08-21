@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Panel - Blog Posts</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<h1>Admin Panel</h1>
+
+	<!-- Admin Panel for managing posts -->
+	<div id="admin-panel" style="display: block;">
+		<h2>Create/Edit Post</h2>
+
+		<form id="admin-post-form">
+			<input type="hidden" id="post-id" />
+			<input type="text" id="post-title" placeholder="Title" required />
+			<textarea id="post-content" placeholder="Content" required></textarea>
+			<input type="text" id="post-author" placeholder="Author" required />
+
+			<!-- Status: Draft or Publish -->
+			<label>
+				<input type="radio" name="post-status" value="draft" checked> Save as Draft
+			</label>
+			<label>
+				<input type="radio" name="post-status" value="published"> Publish
+			</label>
+
+			<button type="submit">Save Post</button>
+			<button type="button" id="delete-post" style="display: none;">Delete Post</button>
+			<button type="button" id="preview-post">Preview</button>
+		</form>
+
+		<h3>Drafts</h3>
+		<div id="admin-drafts-list"></div>
+
+		<h3>Published Posts</h3>
+		<div id="admin-published-list"></div>
+	</div>
+
+	<!-- Modal for Post Preview -->
+	<div id="post-preview-modal" class="modal">
+		<div class="modal-content">
+			<h2 id="preview-title"></h2>
+			<p id="preview-content"></p>
+			<p><strong>Author:</strong> <span id="preview-author"></span></p>
+			<button id="close-preview">Close</button>
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+
+</html>
